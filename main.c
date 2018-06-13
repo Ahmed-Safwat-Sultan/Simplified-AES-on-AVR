@@ -86,7 +86,7 @@ unsigned char rot_nib(unsigned char input){
     return input;
 }
 
-unsigned char darb_mix_column(unsigned char constant, unsigned char data){
+unsigned char multiply_in_mix_column(unsigned char constant, unsigned char data){
     if(constant == 1){
         return data;
     }
@@ -202,10 +202,10 @@ int main(){
 
 
 
-		first_nibble2 = darb_mix_column(1, first_nibble) ^ darb_mix_column(4, second_nibble);
-		second_nibble2 = darb_mix_column(4, first_nibble) ^ darb_mix_column(1, second_nibble);
-		third_nibble2 = darb_mix_column(1, third_nibble) ^ darb_mix_column(4, fourth_nibble);
-		fourth_nibble2 = darb_mix_column(4, third_nibble) ^ darb_mix_column(1, fourth_nibble);
+		first_nibble2 = multiply_in_mix_column(1, first_nibble) ^ multiply_in_mix_column(4, second_nibble);
+		second_nibble2 = multiply_in_mix_column(4, first_nibble) ^ multiply_in_mix_column(1, second_nibble);
+		third_nibble2 = multiply_in_mix_column(1, third_nibble) ^ multiply_in_mix_column(4, fourth_nibble);
+		fourth_nibble2 = multiply_in_mix_column(4, third_nibble) ^ multiply_in_mix_column(1, fourth_nibble);
 
 		/*printf(";;%x\n", first_nibble2);
 		printf(";;%x\n", second_nibble2);
